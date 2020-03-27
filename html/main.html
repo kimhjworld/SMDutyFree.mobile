@@ -22,84 +22,32 @@
 <body>
 
 
-<div id="wrap">
+<div id="wrap" class="type-home">
     <header id="header">
-        <h1>
-            <a href="http://m.smdutyfree.com/fcm101.do?goTo=main&amp;app=">
-                <img src="http://img2.smdutyfree.com/images/kr/mobile/logo.png" alt="SM Dutyfree">
+        <div class="header_wrap">
+            <h1>
+                <a href="http://m.smdutyfree.com/fcm101.do?goTo=main&amp;app=">
+                    <img src="http://img2.smdutyfree.com/images/kr/mobile/logo.png" alt="SM Dutyfree">
+                </a>
+            </h1>
+
+            <a href="http://m.smdutyfree.com/fcm100.do?goTo=category&amp;app=" class="btn_gnb">
+                <h2 class="hide">Category Menu</h2>
             </a>
-        </h1>
 
-        <a href="http://m.smdutyfree.com/fcm100.do?goTo=category&amp;app=" class="btn_gnb">
-            <h2 class="hide">Category Menu</h2>
-        </a>
-
-        <ul class="top_menu">
-            <li>
-                <a href="#" onclick="Fcm.goMenu({url:'/fod101.do?goTo=basket', login_chk:'Y'}); return false;">
-                    <span class="hide">장바구니</span>
-                </a>
-            </li>
-            <li>
-                <a href="#" onclick="Fcm.goMenu({url:'/fmy100.do?goTo=mypMain', login_chk:'Y'}); return false;">
-                    <span class="hide">마이페이지</span>
-                </a>
-            </li>
-        </ul>
-
-        <form name="searchWordTop" style="display: none" id="searchWordTop" action="/fcm005.do?goTo=searchWord" method="post" onkeydown="return entKeyActionRtnTop();">
-            <input type="hidden" name="mobile" value="Y">
-            <input type="hidden" name="category_chk_1dept" id="category_chk_1dept" value=""> <!-- 1depth 카테고리 -->
-            <input type="hidden" name="rt" id="rt" value="">
-            <div class="search_box">
-                <span>
-                    <input type="text" id="query" name="query" class="valueCont" title="검색어 입력" value="" placeholder="[종근당] 장에 착! 내몸에 핏! 락토핏" onblur="javascript:setQueryValue('on');" onfocus="javascript:setQueryValue('');" onclick="javascript:WNRun('po');queryReset();" onkeyup="javascript:displayBytes(100,'query');regSet();WNRun('re');">
-                    <a href="#none" onclick="javascript:setQueryVal();searchWordTop2('');"><span class="hide">검색<!--검색--></span></a>
-                    <input type="hidden" name="regUrl" id="regUrl" value="http://www.smdutyfree.com/fdp006.do?goTo=brandDetail&amp;erp_brandcd=219925#1">
-                    <input type="hidden" name="regWrd" id="regWrd" value="[종근당] 장에 착! 내몸에 핏! 락토핏">
-                    <input type="hidden" name="placeholder" id="placeholder" value="">
-                </span>
-                <!-- 검색어 터치시 나오는 영역 -->
-                <div class="section_search">
-                    <a href="#" class="close"><span class="ir">검색어 영역닫기<!--검색어 영역닫기--></span></a>
-                    <ul class="tab_search clfix type2">
-                        <li id="recommend">
-
-                        </li>
-                    </ul>
-                    <!-- 2017.01.10 인기,최근 검색어 -->
-                    <ul id="search_hot_recent" class="tab_search clfix type3" style="display:none;">
-                        <li id="popular" class="on">
-                            <a href="#none" onclick="javascript:recentTab('popluar');">인기검색어<!--인기검색어--></a>
-                            <ul class="popular" style="display: block;">
-                                <li>
-                                    <a href="#none" onclick="javascript:regSet();searchWordTop2('2160000941401')">
-                                        <span class="num">1</span>
-                                        <span> 2160000941401 </span
-                                        ><span class="clk_num"></span>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#none" onclick="javascript:regSet();searchWordTop2('2180002182237')">
-                                        <span class="num">2</span>
-                                        <span> 2180002182237 </span>
-                                        <span class="clk_num"></span>
-                                    </a>
-                                </li>
-                            </ul>
-                        </li>
-                        <li id="recent">
-                            <a href="#" onclick="javascript:recentTab('recent');">최근검색어<!--추천검색어--></a>
-                            <ul class="recommend" style="min-height:100px;">
-
-                            </ul>
-                        </li>
-                    </ul>
-                    <!-- //2017.01.10 인기,최근 검색어 -->
-                </div>
-                <!-- //-->
-            </div>
-        </form>
+            <ul class="top_menu">
+                <li>
+                    <a href="#" onclick="Fcm.goMenu({url:'/fod101.do?goTo=basket', login_chk:'Y'}); return false;">
+                        <span class="hide">장바구니</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#" onclick="Fcm.goMenu({url:'/fmy100.do?goTo=mypMain', login_chk:'Y'}); return false;">
+                        <span class="hide">마이페이지</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
     </header>
 
     <nav class="nav-main">
@@ -121,6 +69,28 @@
         </ul>
     </nav>
 
+    <nav class="nav-quick">
+        <h2 class="hide">quick Menu</h2>
+        <ul>
+            <!--활성화된 메뉴에 active 붙여주세요 -->
+            <li class="prev active">
+                <a href="#"><span>이전</span></a>
+            </li>
+            <li class="home">
+                <a href="#"><span>홈으로</span></a>
+            </li>
+            <li class="cart">
+                <a href="#"><span>예약카트</span></a>
+            </li>
+            <li class="mypage">
+                <a href="#"><span>예약내역</span></a>
+            </li>
+        </ul>
+    </nav>
+
+
+
+
     <div id="container">
         <h2 class="hide">홈메인</h2>
         <section class="section banner-slide">
@@ -135,12 +105,12 @@
                     </div>
                     <div class="swiper-slide">
                         <div class="uio-banner">
-                            <img src="https://dummyimage.com/640x580/000/fff.png&text=Top+Banner2"  class="uio-banner-img" alt="이미지대체택스트" />
+                            <img src="../images/@dummy/top_banner.png"  class="uio-banner-img" alt="이미지대체택스트" />
                         </div>
                     </div>
                     <div class="swiper-slide">
                         <div class="uio-banner">
-                            <img src="https://dummyimage.com/640x580/000/fff.png&text=Top+Banner3"  class="uio-banner-img" alt="이미지대체택스트" />
+                            <img src="../images/@dummy/top_banner.png"  class="uio-banner-img" alt="이미지대체택스트" />
                         </div>
                     </div>
                 </div>
@@ -952,6 +922,32 @@
                 </div>
             </div>
         </section>
+    </div>
+
+    <div id="floating">
+        <div class="dimmed"></div>
+        <ul class="floating">
+            <li class="btn_center">
+                <a href="javascript:;" >
+                    <span class="text">고객센터</span>
+                </a>
+            </li>
+            <li class="btn_map">
+                <a href="javascript:;" >
+                    <span class="text">인도장안내</span>
+                </a>
+            </li>
+            <li class="btn_top">
+                <a href="javascript:UI.COMMON.MoveTop.init();" >
+                    <span class="hide">TOP</span>
+                </a>
+            </li>
+            <li class="btn_plus">
+                <a href="javascript:;" >
+                    <span class="hide">plus</span>
+                </a>
+            </li>
+        </ul>
     </div>
 
     <footer id="footer">

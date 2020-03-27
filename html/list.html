@@ -89,29 +89,33 @@
     </nav>
 
     <div id="container">
-        <h2 class="hide">입국장BEST</h2>
+        <h2 class="hide">상품리스트</h2>
 
         <section class="section item-list">
+            <div class="categ_nav_top">
+                <a href="/fdp101.do?goTo=gList&amp;ct_cd1=100000&amp;ct_cd2=&amp;ct_cd3=" class="back">
+                    <span class="ir">이전으로</span>
+                </a>
+                <a href="#" class="categ_title"><em>바디케어</em></a>
+            </div>
             <div class="section-body">
-                <!--  탭영역 -->
-                <div class="item-list_tab">
-                    <ul>
-                        <!--활성화된 카테고리 메뉴에 active 클래스 추가해주세요 -->
-                        <li class="active"><a href="#" class="link"><span>판매</span></a></li>
-                        <li><a href="#" class="link"><span>추천</span></a></li>
-                        <li><a href="#" class="link"><span>조회</span></a></li>
-                    </ul>
+                <div class="item-list_checkbox">
+                    <span class="text">품절상품제외</span>
+                    <input type="checkbox" name="" id="chbox_autoLogin" class="chk_toggle" checked="">
+                    <label for="chbox_autoLogin" class="checkbox-label"><span class="hide">토글버튼</span></label>
                 </div>
                 <!--  컨트롤러 영역-->
                 <div class="item-list_control">
-                    <select name="f_category" id="f_category" class="sel_category">
-                        <option value="">카테고리</option>
-                        <option value="">카테고리1</option>
-                        <option value="">카테고리2</option>
-                        <option value="">카테고리3</option>
+                    <span class="text">총 <b>2</b>건</span>
+                    <select name="f_filter" id="f_filter" class="sel_filter">
+                        <option value="">할인율</option>
+                        <option value="">할인율1</option>
                     </select>
+                    <button class="btn_search">
+                        <span class="hide">검색하기</span>
+                    </button>
                     <ul class="uio-view-type">
-                        <li class="uio-view-type_grid ">
+                        <li class="uio-view-type_grid">
                             <a href="#" class="btn"><span class="hide">그리드형보기</span></a>
                         </li>
                         <li class="uio-view-type_list active">
@@ -320,10 +324,7 @@
             </div>
 
         </section>
-
-
     </div>
-
 
     <div id="floating">
         <div class="dimmed"></div>
@@ -350,7 +351,6 @@
             </li>
         </ul>
     </div>
-
 
     <footer id="footer">
         <div class="foot_tab">
