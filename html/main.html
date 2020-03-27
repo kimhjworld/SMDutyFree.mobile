@@ -3,10 +3,9 @@
 <head lang="ko">
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no, target-densitydpi=medium-dpi">
     <!--Page Title-->
-    <title>Favorite ME</title>
+    <title>SM DUTY FREE</title>
 
     <!--Meta Keywords and Description-->
     <meta name="keywords" content="">
@@ -17,335 +16,985 @@
     <link rel="shortcut icon" href="../images/favicon.ico" title="Favicon"/>
 
     <!-- Main CSS Files -->
-    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/app.css">
 
 </head>
 <body>
 
-<!-- Preloader -->
-<div id="preloader">
-    <div id="status" class="la-ball-triangle-path">
-        <div></div>
-        <div></div>
-        <div></div>
-    </div>
-</div>
-<!--End of Preloader-->
 
+<div id="wrap">
+    <header id="header">
+        <h1>
+            <a href="http://m.smdutyfree.com/fcm101.do?goTo=main&amp;app=">
+                <img src="http://img2.smdutyfree.com/images/kr/mobile/logo.png" alt="SM Dutyfree">
+            </a>
+        </h1>
 
-<div id="wrapper">
-    <div id="gnb">
-        <a href="#" class="btn-gnb-folder"><span class="blind">메뉴열기</span></a>
-        <div class="gnb-wrapper">
-            <div class="gnb-icon">
-               <h1>
-                   <a href="#" class="link"><span class="blind">홈으로</span></a>
-               </h1>
+        <a href="http://m.smdutyfree.com/fcm100.do?goTo=category&amp;app=" class="btn_gnb">
+            <h2 class="hide">Category Menu</h2>
+        </a>
+
+        <ul class="top_menu">
+            <li>
+                <a href="#" onclick="Fcm.goMenu({url:'/fod101.do?goTo=basket', login_chk:'Y'}); return false;">
+                    <span class="hide">장바구니</span>
+                </a>
+            </li>
+            <li>
+                <a href="#" onclick="Fcm.goMenu({url:'/fmy100.do?goTo=mypMain', login_chk:'Y'}); return false;">
+                    <span class="hide">마이페이지</span>
+                </a>
+            </li>
+        </ul>
+
+        <form name="searchWordTop" style="display: none" id="searchWordTop" action="/fcm005.do?goTo=searchWord" method="post" onkeydown="return entKeyActionRtnTop();">
+            <input type="hidden" name="mobile" value="Y">
+            <input type="hidden" name="category_chk_1dept" id="category_chk_1dept" value=""> <!-- 1depth 카테고리 -->
+            <input type="hidden" name="rt" id="rt" value="">
+            <div class="search_box">
+                <span>
+                    <input type="text" id="query" name="query" class="valueCont" title="검색어 입력" value="" placeholder="[종근당] 장에 착! 내몸에 핏! 락토핏" onblur="javascript:setQueryValue('on');" onfocus="javascript:setQueryValue('');" onclick="javascript:WNRun('po');queryReset();" onkeyup="javascript:displayBytes(100,'query');regSet();WNRun('re');">
+                    <a href="#none" onclick="javascript:setQueryVal();searchWordTop2('');"><span class="hide">검색<!--검색--></span></a>
+                    <input type="hidden" name="regUrl" id="regUrl" value="http://www.smdutyfree.com/fdp006.do?goTo=brandDetail&amp;erp_brandcd=219925#1">
+                    <input type="hidden" name="regWrd" id="regWrd" value="[종근당] 장에 착! 내몸에 핏! 락토핏">
+                    <input type="hidden" name="placeholder" id="placeholder" value="">
+                </span>
+                <!-- 검색어 터치시 나오는 영역 -->
+                <div class="section_search">
+                    <a href="#" class="close"><span class="ir">검색어 영역닫기<!--검색어 영역닫기--></span></a>
+                    <ul class="tab_search clfix type2">
+                        <li id="recommend">
+
+                        </li>
+                    </ul>
+                    <!-- 2017.01.10 인기,최근 검색어 -->
+                    <ul id="search_hot_recent" class="tab_search clfix type3" style="display:none;">
+                        <li id="popular" class="on">
+                            <a href="#none" onclick="javascript:recentTab('popluar');">인기검색어<!--인기검색어--></a>
+                            <ul class="popular" style="display: block;">
+                                <li>
+                                    <a href="#none" onclick="javascript:regSet();searchWordTop2('2160000941401')">
+                                        <span class="num">1</span>
+                                        <span> 2160000941401 </span
+                                        ><span class="clk_num"></span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#none" onclick="javascript:regSet();searchWordTop2('2180002182237')">
+                                        <span class="num">2</span>
+                                        <span> 2180002182237 </span>
+                                        <span class="clk_num"></span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li id="recent">
+                            <a href="#" onclick="javascript:recentTab('recent');">최근검색어<!--추천검색어--></a>
+                            <ul class="recommend" style="min-height:100px;">
+
+                            </ul>
+                        </li>
+                    </ul>
+                    <!-- //2017.01.10 인기,최근 검색어 -->
+                </div>
+                <!-- //-->
             </div>
-            <ul class="main-menu">
-                <li><a href="#" class="link">PROGRAM</a></li>
-                <li><a href="#" class="link">POST</a></li>
+        </form>
+    </header>
+
+    <nav class="nav-main">
+        <h2 class="hide">GNB Menu</h2>
+        <ul>
+            <!--활성화된 메뉴에 active 붙여주세요 -->
+            <li class="active">
+                <a href="best.html">입국장 BEST</a>
+            </li>
+            <li>
+                <a href="event.html">입국장이벤트</a>
+            </li>
+            <li>
+                <a href="coupon.html">입국장 현장쿠폰</a>
+            </li>
+            <li>
+                <a href="best.html">입국장 예약안내</a>
+            </li>
+        </ul>
+    </nav>
+
+    <div id="container">
+        <h2 class="hide">홈메인</h2>
+        <section class="section banner-slide">
+            <h3 class="hide">메인 탑배너</h3>
+            <!-- Swiper area -->
+            <div class="swiper-container">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide">
+                        <div class="uio-banner">
+                            <img src="../images/@dummy/top_banner.png"  class="uio-banner-img" alt="이미지대체택스트" />
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="uio-banner">
+                            <img src="https://dummyimage.com/640x580/000/fff.png&text=Top+Banner2"  class="uio-banner-img" alt="이미지대체택스트" />
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="uio-banner">
+                            <img src="https://dummyimage.com/640x580/000/fff.png&text=Top+Banner3"  class="uio-banner-img" alt="이미지대체택스트" />
+                        </div>
+                    </div>
+                </div>
+                <!-- Add Pagination -->
+                <div class="swiper-pagination"></div>
+            </div>
+        </section>
+
+        <section class="section line-banner">
+            <h3 class="hide">띠배너 이미지</h3>
+            <div class="uio-banner">
+                <img src="http://img2.smdutyfree.com/images/mainBanner/m_mainBan.jpg" class="uio-banner-img" alt="이미지대체택스트"/>
+            </div>
+        </section>
+
+        <section class="section line-banner">
+            <h3 class="hide">띠배너 이미지</h3>
+            <div class="uio-banner">
+                <img src="http://img2.smdutyfree.com/images/mainBanner/m_arRevMallBan.jpg" class="uio-banner-img" alt="이미지대체택스트"/>
+            </div>
+        </section>
+
+        <section class="section best-item">
+            <h3 class="section-title">베스트</h3>
+            <div class="section-body">
+                <!-- 베스트 카테고리 영역-->
+                <div class="best-item_category">
+                    <div class="swiper-container">
+                        <ul class="swiper-wrapper">
+                            <!--활성화된 카테고리 메뉴에 active 클래스 추가해주세요 -->
+                            <li class="swiper-slide active"><a href="#" class="link"><span>화장품</span></a></li>
+                            <li class="swiper-slide"><a href="#" class="link"><span>향수</span></a></li>
+                            <li class="swiper-slide"><a href="#" class="link"><span>패션/잡화</span></a></li>
+                            <li class="swiper-slide"><a href="#" class="link"><span>유아동</span></a></li>
+                            <li class="swiper-slide"><a href="#" class="link"><span>전자제품</span></a></li>
+                            <li class="swiper-slide"><a href="#" class="link"><span>식품</span></a></li>
+                            <li class="swiper-slide"><a href="#" class="link"><span>시계/주얼리</span></a></li>
+                        </ul>
+                    </div>
+                </div>
+                <!-- 베스트 상품영역 -->
+                <div class="best-item_items">
+                    <div class="swiper-container">
+                        <ul class="swiper-wrapper">
+                            <li class="swiper-slide">
+                                <div class="uio-item">
+                                    <a href="#">
+                                        <div class="uio-item_img">
+                                            <span class="no"><strong>1</strong>st</span>
+                                            <span class="label">30%</span>
+                                            <img src="http://img1.smdutyfree.com/upload/adm/sp/219021/2190002618582/2190002618582_BE_1_1582252010934.png" alt="시그니처바이오 앰플">
+                                        </div>
+                                        <div class="uio-item_info">
+                                            <dl>
+                                                <dt class="hide">브랜드</dt><dd class="value brand">Celonia</dd>
+                                                <dt class="hide">상품명</dt><dd class="value title">시그니처바이오 앰플1 </dd>
+                                                <dt class="hide">가격</dt>
+                                                <dd class="value price">
+                                                    <del class="original">$100</del>
+                                                    <strong class="sell">$95</strong>
+                                                    <span class="currency">119,320원</span>
+                                                </dd>
+                                            </dl>
+                                        </div>
+                                    </a>
+                                </div>
+                            </li>
+                            <li class="swiper-slide">
+                                <div class="uio-item">
+                                    <a href="#">
+                                        <div class="uio-item_img">
+                                            <span class="no"><strong>2</strong>nd</span>
+                                            <span class="label">SALE</span>
+                                            <img src="http://img1.smdutyfree.com/upload/adm/sp/219021/2190002618582/2190002618582_BE_1_1582252010934.png" alt="시그니처바이오 앰플">
+                                        </div>
+                                        <div class="uio-item_info">
+                                            <dl>
+                                                <dt class="hide">브랜드</dt><dd class="value brand">Celonia</dd>
+                                                <dt class="hide">상품명</dt><dd class="value title">시그니처바이오 앰플2 </dd>
+                                                <dt class="hide">가격</dt>
+                                                <dd class="value price">
+                                                    <del class="original">$100</del>
+                                                    <strong class="sell">$95</strong>
+                                                    <span class="currency">119,320원</span>
+                                                </dd>
+                                            </dl>
+                                        </div>
+                                    </a>
+                                </div>
+                            </li>
+                            <li class="swiper-slide">
+                                <div class="uio-item">
+                                    <a href="#">
+                                        <div class="uio-item_img">
+                                            <span class="no"><strong>3</strong>rd</span>
+                                            <span class="label">30%</span>
+                                            <img src="http://img1.smdutyfree.com/upload/adm/sp/219021/2190002618582/2190002618582_BE_1_1582252010934.png" alt="시그니처바이오 앰플">
+                                        </div>
+                                        <div class="uio-item_info">
+                                            <dl>
+                                                <dt class="hide">브랜드</dt><dd class="value brand">Celonia</dd>
+                                                <dt class="hide">상품명</dt><dd class="value title">시그니처바이오 앰플3 </dd>
+                                                <dt class="hide">가격</dt>
+                                                <dd class="value price">
+                                                    <del class="original">$100</del>
+                                                    <strong class="sell">$95</strong>
+                                                    <span class="currency">119,320원</span>
+                                                </dd>
+                                            </dl>
+                                        </div>
+                                    </a>
+                                </div>
+                            </li>
+                            <li class="swiper-slide">
+                                <div class="uio-item">
+                                    <a href="#">
+                                        <div class="uio-item_img">
+                                            <span class="no"><strong>4</strong>th</span>
+                                            <span class="label">30%</span>
+                                            <img src="http://img1.smdutyfree.com/upload/adm/sp/219021/2190002618582/2190002618582_BE_1_1582252010934.png" alt="시그니처바이오 앰플">
+                                        </div>
+                                        <div class="uio-item_info">
+                                            <dl>
+                                                <dt class="hide">브랜드</dt><dd class="value brand">Celonia</dd>
+                                                <dt class="hide">상품명</dt><dd class="value title">시그니처바이오 앰플4 </dd>
+                                                <dt class="hide">가격</dt>
+                                                <dd class="value price">
+                                                    <del class="original">$100</del>
+                                                    <strong class="sell">$95</strong>
+                                                    <span class="currency">119,320원</span>
+                                                </dd>
+                                            </dl>
+                                        </div>
+                                    </a>
+                                </div>
+                            </li>
+                            <li class="swiper-slide">
+                                <div class="uio-item">
+                                    <a href="#">
+                                        <div class="uio-item_img">
+                                            <span class="no"><strong>5</strong>st</span>
+                                            <span class="label">30%</span>
+                                            <img src="http://img1.smdutyfree.com/upload/adm/sp/219021/2190002618582/2190002618582_BE_1_1582252010934.png" alt="시그니처바이오 앰플">
+                                        </div>
+                                        <div class="uio-item_info">
+                                            <dl>
+                                                <dt class="hide">브랜드</dt><dd class="value brand">Celonia</dd>
+                                                <dt class="hide">상품명</dt><dd class="value title">시그니처바이오 앰플5 </dd>
+                                                <dt class="hide">가격</dt>
+                                                <dd class="value price">
+                                                    <del class="original">$100</del>
+                                                    <strong class="sell">$95</strong>
+                                                    <span class="currency">119,320원</span>
+                                                </dd>
+                                            </dl>
+                                        </div>
+                                    </a>
+                                </div>
+                            </li>
+                            <li class="swiper-slide">
+                                <div class="uio-item">
+                                    <a href="#">
+                                        <div class="uio-item_img">
+                                            <span class="no"><strong>6</strong>st</span>
+                                            <span class="label">30%</span>
+                                            <img src="http://img1.smdutyfree.com/upload/adm/sp/219021/2190002618582/2190002618582_BE_1_1582252010934.png" alt="시그니처바이오 앰플">
+                                        </div>
+                                        <div class="uio-item_info">
+                                            <dl>
+                                                <dt class="hide">브랜드</dt><dd class="value brand">Celonia</dd>
+                                                <dt class="hide">상품명</dt><dd class="value title">시그니처바이오 앰플6 </dd>
+                                                <dt class="hide">가격</dt>
+                                                <dd class="value price">
+                                                    <del class="original">$100</del>
+                                                    <strong class="sell">$95</strong>
+                                                    <span class="currency">119,320원</span>
+                                                </dd>
+                                            </dl>
+                                        </div>
+                                    </a>
+                                </div>
+                            </li>
+                            <li class="swiper-slide">
+                                <div class="uio-item">
+                                    <a href="#">
+                                        <div class="uio-item_img">
+                                            <span class="no"><strong>7</strong>st</span>
+                                            <span class="label">30%</span>
+                                            <img src="http://img1.smdutyfree.com/upload/adm/sp/219021/2190002618582/2190002618582_BE_1_1582252010934.png" alt="시그니처바이오 앰플">
+                                        </div>
+                                        <div class="uio-item_info">
+                                            <dl>
+                                                <dt class="hide">브랜드</dt><dd class="value brand">Celonia</dd>
+                                                <dt class="hide">상품명</dt><dd class="value title">시그니처바이오 앰플7 </dd>
+                                                <dt class="hide">가격</dt>
+                                                <dd class="value price">
+                                                    <del class="original">$100</del>
+                                                    <strong class="sell">$95</strong>
+                                                    <span class="currency">119,320원</span>
+                                                </dd>
+                                            </dl>
+                                        </div>
+                                    </a>
+                                </div>
+                            </li>
+                            <li class="swiper-slide">
+                                <div class="uio-item">
+                                    <a href="#">
+                                        <div class="uio-item_img">
+                                            <span class="no"><strong>8</strong>st</span>
+                                            <span class="label">30%</span>
+                                            <img src="http://img1.smdutyfree.com/upload/adm/sp/219021/2190002618582/2190002618582_BE_1_1582252010934.png" alt="시그니처바이오 앰플">
+                                        </div>
+                                        <div class="uio-item_info">
+                                            <dl>
+                                                <dt class="hide">브랜드</dt><dd class="value brand">Celonia</dd>
+                                                <dt class="hide">상품명</dt><dd class="value title">시그니처바이오 앰플8 </dd>
+                                                <dt class="hide">가격</dt>
+                                                <dd class="value price">
+                                                    <del class="original">$100</del>
+                                                    <strong class="sell">$95</strong>
+                                                    <span class="currency">119,320원</span>
+                                                </dd>
+                                            </dl>
+                                        </div>
+                                    </a>
+                                </div>
+                            </li>
+                            <li class="swiper-slide">
+                                <div class="uio-item">
+                                    <a href="#">
+                                        <div class="uio-item_img">
+                                            <span class="no"><strong>9</strong>st</span>
+                                            <span class="label">30%</span>
+                                            <img src="http://img1.smdutyfree.com/upload/adm/sp/219021/2190002618582/2190002618582_BE_1_1582252010934.png" alt="시그니처바이오 앰플">
+                                        </div>
+                                        <div class="uio-item_info">
+                                            <dl>
+                                                <dt class="hide">브랜드</dt><dd class="value brand">Celonia</dd>
+                                                <dt class="hide">상품명</dt><dd class="value title">시그니처바이오 앰플9 </dd>
+                                                <dt class="hide">가격</dt>
+                                                <dd class="value price">
+                                                    <del class="original">$100</del>
+                                                    <strong class="sell">$95</strong>
+                                                    <span class="currency">119,320원</span>
+                                                </dd>
+                                            </dl>
+                                        </div>
+                                    </a>
+                                </div>
+                            </li>
+                            <li class="swiper-slide">
+                                <div class="uio-item">
+                                    <a href="#">
+                                        <div class="uio-item_img">
+                                            <span class="no"><strong>10</strong>st</span>
+                                            <span class="label">30%</span>
+                                            <img src="http://img1.smdutyfree.com/upload/adm/sp/219021/2190002618582/2190002618582_BE_1_1582252010934.png" alt="시그니처바이오 앰플">
+                                        </div>
+                                        <div class="uio-item_info">
+                                            <dl>
+                                                <dt class="hide">브랜드</dt><dd class="value brand">Celonia</dd>
+                                                <dt class="hide">상품명</dt><dd class="value title">시그니처바이오 앰플10 </dd>
+                                                <dt class="hide">가격</dt>
+                                                <dd class="value price">
+                                                    <del class="original">$100</del>
+                                                    <strong class="sell">$95</strong>
+                                                    <span class="currency">119,320원</span>
+                                                </dd>
+                                            </dl>
+                                        </div>
+                                    </a>
+                                </div>
+                            </li>
+
+
+                        </ul>
+                        <!-- Add Pagination -->
+                        <div class="swiper-pagination"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="section-footer">
+                <a href="#" class="more">더보기</a>
+            </div>
+        </section>
+
+        <section class="section time-deal">
+            <h3 class="section-title">
+                <strong>TIME SALE</strong>
+                <span class="timer">
+                    <span class="panel hh">0</span><span class="panel hh">0</span>
+                    <span>:</span>
+                    <span class="panel mm">0</span><span class="panel mm">0</span>
+                    <span>:</span>
+                    <span class="panel ss">0</span><span class="panel ss">0</span>
+                </span>
+            </h3>
+            <div class="section-body">
+                <div class="time-deal_items">
+                    <div class="swiper-container">
+                        <ul class="swiper-wrapper">
+                            <li class="swiper-slide">
+                                <div class="uio-item">
+                                    <a href="#">
+                                        <div class="uio-item_img">
+                                            <img src="http://img1.smdutyfree.com/upload/adm/sp/219021/2190002618582/2190002618582_BE_1_1582252010934.png" alt="시그니처바이오 앰플">
+                                        </div>
+                                        <div class="uio-item_info">
+                                            <dl>
+                                                <dt class="hide">브랜드</dt><dd class="value brand">Celonia</dd>
+                                                <dt class="hide">상품명</dt><dd class="value title">시그니처바이오 앰플1 </dd>
+                                                <dt class="hide">가격</dt>
+                                                <dd class="value price">
+                                                    <del class="original">$100</del>
+                                                    <strong class="sell">$95</strong>
+                                                    <span class="currency">119,320원</span>
+                                                </dd>
+                                            </dl>
+                                        </div>
+                                    </a>
+                                </div>
+                            </li>
+                            <li class="swiper-slide">
+                                <div class="uio-item">
+                                    <a href="#">
+                                        <div class="uio-item_img">
+                                            <img src="http://img1.smdutyfree.com/upload/adm/sp/219021/2190002618582/2190002618582_BE_1_1582252010934.png" alt="시그니처바이오 앰플">
+                                        </div>
+                                        <div class="uio-item_info">
+                                            <dl>
+                                                <dt class="hide">브랜드</dt><dd class="value brand">Celonia</dd>
+                                                <dt class="hide">상품명</dt><dd class="value title">시그니처바이오 앰플1 </dd>
+                                                <dt class="hide">가격</dt>
+                                                <dd class="value price">
+                                                    <del class="original">$100</del>
+                                                    <strong class="sell">$95</strong>
+                                                    <span class="currency">119,320원</span>
+                                                </dd>
+                                            </dl>
+                                        </div>
+                                    </a>
+                                </div>
+                            </li>
+                            <li class="swiper-slide">
+                                <div class="uio-item">
+                                    <a href="#">
+                                        <div class="uio-item_img">
+                                            <img src="http://img1.smdutyfree.com/upload/adm/sp/219021/2190002618582/2190002618582_BE_1_1582252010934.png" alt="시그니처바이오 앰플">
+                                        </div>
+                                        <div class="uio-item_info">
+                                            <dl>
+                                                <dt class="hide">브랜드</dt><dd class="value brand">Celonia</dd>
+                                                <dt class="hide">상품명</dt><dd class="value title">시그니처바이오 앰플1 </dd>
+                                                <dt class="hide">가격</dt>
+                                                <dd class="value price">
+                                                    <del class="original">$100</del>
+                                                    <strong class="sell">$95</strong>
+                                                    <span class="currency">119,320원</span>
+                                                </dd>
+                                            </dl>
+                                        </div>
+                                    </a>
+                                </div>
+                            </li>
+
+                            <li class="swiper-slide">
+                                <div class="uio-item">
+                                    <a href="#">
+                                        <div class="uio-item_img">
+                                            <img src="http://img1.smdutyfree.com/upload/adm/sp/219021/2190002618582/2190002618582_BE_1_1582252010934.png" alt="시그니처바이오 앰플">
+                                        </div>
+                                        <div class="uio-item_info">
+                                            <dl>
+                                                <dt class="hide">브랜드</dt><dd class="value brand">Celonia</dd>
+                                                <dt class="hide">상품명</dt><dd class="value title">시그니처바이오 앰플1 </dd>
+                                                <dt class="hide">가격</dt>
+                                                <dd class="value price">
+                                                    <del class="original">$100</del>
+                                                    <strong class="sell">$95</strong>
+                                                    <span class="currency">119,320원</span>
+                                                </dd>
+                                            </dl>
+                                        </div>
+                                    </a>
+                                </div>
+                            </li>
+
+                            <li class="swiper-slide">
+                                <div class="uio-item">
+                                    <a href="#">
+                                        <div class="uio-item_img">
+                                            <img src="http://img1.smdutyfree.com/upload/adm/sp/219021/2190002618582/2190002618582_BE_1_1582252010934.png" alt="시그니처바이오 앰플">
+                                        </div>
+                                        <div class="uio-item_info">
+                                            <dl>
+                                                <dt class="hide">브랜드</dt><dd class="value brand">Celonia</dd>
+                                                <dt class="hide">상품명</dt><dd class="value title">시그니처바이오 앰플1 </dd>
+                                                <dt class="hide">가격</dt>
+                                                <dd class="value price">
+                                                    <del class="original">$100</del>
+                                                    <strong class="sell">$95</strong>
+                                                    <span class="currency">119,320원</span>
+                                                </dd>
+                                            </dl>
+                                        </div>
+                                    </a>
+                                </div>
+                            </li>
+
+                            <li class="swiper-slide">
+                                <div class="uio-item">
+                                    <a href="#">
+                                        <div class="uio-item_img">
+                                            <img src="http://img1.smdutyfree.com/upload/adm/sp/219021/2190002618582/2190002618582_BE_1_1582252010934.png" alt="시그니처바이오 앰플">
+                                        </div>
+                                        <div class="uio-item_info">
+                                            <dl>
+                                                <dt class="hide">브랜드</dt><dd class="value brand">Celonia</dd>
+                                                <dt class="hide">상품명</dt><dd class="value title">시그니처바이오 앰플1 </dd>
+                                                <dt class="hide">가격</dt>
+                                                <dd class="value price">
+                                                    <del class="original">$100</del>
+                                                    <strong class="sell">$95</strong>
+                                                    <span class="currency">119,320원</span>
+                                                </dd>
+                                            </dl>
+                                        </div>
+                                    </a>
+                                </div>
+                            </li>
+
+                            <li class="swiper-slide">
+                                <div class="uio-item">
+                                    <a href="#">
+                                        <div class="uio-item_img">
+                                            <img src="http://img1.smdutyfree.com/upload/adm/sp/219021/2190002618582/2190002618582_BE_1_1582252010934.png" alt="시그니처바이오 앰플">
+                                        </div>
+                                        <div class="uio-item_info">
+                                            <dl>
+                                                <dt class="hide">브랜드</dt><dd class="value brand">Celonia</dd>
+                                                <dt class="hide">상품명</dt><dd class="value title">시그니처바이오 앰플1 </dd>
+                                                <dt class="hide">가격</dt>
+                                                <dd class="value price">
+                                                    <del class="original">$100</del>
+                                                    <strong class="sell">$95</strong>
+                                                    <span class="currency">119,320원</span>
+                                                </dd>
+                                            </dl>
+                                        </div>
+                                    </a>
+                                </div>
+                            </li>
+
+                        </ul>
+                        <!-- If we need navigation buttons -->
+                        <div class="swiper-button-prev"></div>
+                        <div class="swiper-button-next"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section time-deal">
+            <h3 class="section-title">
+                <strong>ONE DAY SALE</strong>
+                <span class="timer">
+                    <span class="panel hh">0</span><span class="panel hh">0</span>
+                    <span>:</span>
+                    <span class="panel mm">0</span><span class="panel mm">0</span>
+                    <span>:</span>
+                    <span class="panel ss">0</span><span class="panel ss">0</span>
+                </span>
+            </h3>
+            <div class="section-body">
+                <div class="time-deal_items">
+                    <div class="swiper-container">
+                        <ul class="swiper-wrapper">
+                            <li class="swiper-slide">
+                                <div class="uio-item">
+                                    <a href="#">
+                                        <div class="uio-item_img">
+                                            <img src="http://img1.smdutyfree.com/upload/adm/sp/219021/2190002618582/2190002618582_BE_1_1582252010934.png" alt="시그니처바이오 앰플">
+                                        </div>
+                                        <div class="uio-item_info">
+                                            <dl>
+                                                <dt class="hide">브랜드</dt><dd class="value brand">Celonia</dd>
+                                                <dt class="hide">상품명</dt><dd class="value title">시그니처바이오 앰플1 </dd>
+                                                <dt class="hide">가격</dt>
+                                                <dd class="value price">
+                                                    <del class="original">$100</del>
+                                                    <strong class="sell">$95</strong>
+                                                    <span class="currency">119,320원</span>
+                                                </dd>
+                                            </dl>
+                                        </div>
+                                    </a>
+                                </div>
+                            </li>
+                            <li class="swiper-slide">
+                                <div class="uio-item">
+                                    <a href="#">
+                                        <div class="uio-item_img">
+                                            <img src="http://img1.smdutyfree.com/upload/adm/sp/219021/2190002618582/2190002618582_BE_1_1582252010934.png" alt="시그니처바이오 앰플">
+                                        </div>
+                                        <div class="uio-item_info">
+                                            <dl>
+                                                <dt class="hide">브랜드</dt><dd class="value brand">Celonia</dd>
+                                                <dt class="hide">상품명</dt><dd class="value title">시그니처바이오 앰플1 </dd>
+                                                <dt class="hide">가격</dt>
+                                                <dd class="value price">
+                                                    <del class="original">$100</del>
+                                                    <strong class="sell">$95</strong>
+                                                    <span class="currency">119,320원</span>
+                                                </dd>
+                                            </dl>
+                                        </div>
+                                    </a>
+                                </div>
+                            </li>
+                            <li class="swiper-slide">
+                                <div class="uio-item">
+                                    <a href="#">
+                                        <div class="uio-item_img">
+                                            <img src="http://img1.smdutyfree.com/upload/adm/sp/219021/2190002618582/2190002618582_BE_1_1582252010934.png" alt="시그니처바이오 앰플">
+                                        </div>
+                                        <div class="uio-item_info">
+                                            <dl>
+                                                <dt class="hide">브랜드</dt><dd class="value brand">Celonia</dd>
+                                                <dt class="hide">상품명</dt><dd class="value title">시그니처바이오 앰플1 </dd>
+                                                <dt class="hide">가격</dt>
+                                                <dd class="value price">
+                                                    <del class="original">$100</del>
+                                                    <strong class="sell">$95</strong>
+                                                    <span class="currency">119,320원</span>
+                                                </dd>
+                                            </dl>
+                                        </div>
+                                    </a>
+                                </div>
+                            </li>
+
+                            <li class="swiper-slide">
+                                <div class="uio-item">
+                                    <a href="#">
+                                        <div class="uio-item_img">
+                                            <img src="http://img1.smdutyfree.com/upload/adm/sp/219021/2190002618582/2190002618582_BE_1_1582252010934.png" alt="시그니처바이오 앰플">
+                                        </div>
+                                        <div class="uio-item_info">
+                                            <dl>
+                                                <dt class="hide">브랜드</dt><dd class="value brand">Celonia</dd>
+                                                <dt class="hide">상품명</dt><dd class="value title">시그니처바이오 앰플1 </dd>
+                                                <dt class="hide">가격</dt>
+                                                <dd class="value price">
+                                                    <del class="original">$100</del>
+                                                    <strong class="sell">$95</strong>
+                                                    <span class="currency">119,320원</span>
+                                                </dd>
+                                            </dl>
+                                        </div>
+                                    </a>
+                                </div>
+                            </li>
+
+                            <li class="swiper-slide">
+                                <div class="uio-item">
+                                    <a href="#">
+                                        <div class="uio-item_img">
+                                            <img src="http://img1.smdutyfree.com/upload/adm/sp/219021/2190002618582/2190002618582_BE_1_1582252010934.png" alt="시그니처바이오 앰플">
+                                        </div>
+                                        <div class="uio-item_info">
+                                            <dl>
+                                                <dt class="hide">브랜드</dt><dd class="value brand">Celonia</dd>
+                                                <dt class="hide">상품명</dt><dd class="value title">시그니처바이오 앰플1 </dd>
+                                                <dt class="hide">가격</dt>
+                                                <dd class="value price">
+                                                    <del class="original">$100</del>
+                                                    <strong class="sell">$95</strong>
+                                                    <span class="currency">119,320원</span>
+                                                </dd>
+                                            </dl>
+                                        </div>
+                                    </a>
+                                </div>
+                            </li>
+
+                            <li class="swiper-slide">
+                                <div class="uio-item">
+                                    <a href="#">
+                                        <div class="uio-item_img">
+                                            <img src="http://img1.smdutyfree.com/upload/adm/sp/219021/2190002618582/2190002618582_BE_1_1582252010934.png" alt="시그니처바이오 앰플">
+                                        </div>
+                                        <div class="uio-item_info">
+                                            <dl>
+                                                <dt class="hide">브랜드</dt><dd class="value brand">Celonia</dd>
+                                                <dt class="hide">상품명</dt><dd class="value title">시그니처바이오 앰플1 </dd>
+                                                <dt class="hide">가격</dt>
+                                                <dd class="value price">
+                                                    <del class="original">$100</del>
+                                                    <strong class="sell">$95</strong>
+                                                    <span class="currency">119,320원</span>
+                                                </dd>
+                                            </dl>
+                                        </div>
+                                    </a>
+                                </div>
+                            </li>
+
+                            <li class="swiper-slide">
+                                <div class="uio-item">
+                                    <a href="#">
+                                        <div class="uio-item_img">
+                                            <img src="http://img1.smdutyfree.com/upload/adm/sp/219021/2190002618582/2190002618582_BE_1_1582252010934.png" alt="시그니처바이오 앰플">
+                                        </div>
+                                        <div class="uio-item_info">
+                                            <dl>
+                                                <dt class="hide">브랜드</dt><dd class="value brand">Celonia</dd>
+                                                <dt class="hide">상품명</dt><dd class="value title">시그니처바이오 앰플1 </dd>
+                                                <dt class="hide">가격</dt>
+                                                <dd class="value price">
+                                                    <del class="original">$100</del>
+                                                    <strong class="sell">$95</strong>
+                                                    <span class="currency">119,320원</span>
+                                                </dd>
+                                            </dl>
+                                        </div>
+                                    </a>
+                                </div>
+                            </li>
+
+                        </ul>
+                        <!-- If we need navigation buttons -->
+                        <div class="swiper-button-prev"></div>
+                        <div class="swiper-button-next"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section time-deal">
+            <h3 class="section-title">
+                <strong>WEEKLY SALE</strong>
+                <span class="timer">
+                    <span class="panel dd">0</span><span class="panel dd">6</span>
+                    <span class="label">일 남았습니다</span>
+                </span>
+            </h3>
+            <div class="section-body">
+                <div class="time-deal_items">
+                    <div class="swiper-container">
+                        <ul class="swiper-wrapper">
+                            <li class="swiper-slide">
+                                <div class="uio-item">
+                                    <a href="#">
+                                        <div class="uio-item_img">
+                                            <img src="http://img1.smdutyfree.com/upload/adm/sp/219021/2190002618582/2190002618582_BE_1_1582252010934.png" alt="시그니처바이오 앰플">
+                                        </div>
+                                        <div class="uio-item_info">
+                                            <dl>
+                                                <dt class="hide">브랜드</dt><dd class="value brand">Celonia</dd>
+                                                <dt class="hide">상품명</dt><dd class="value title">시그니처바이오 앰플1 </dd>
+                                                <dt class="hide">가격</dt>
+                                                <dd class="value price">
+                                                    <del class="original">$100</del>
+                                                    <strong class="sell">$95</strong>
+                                                    <span class="currency">119,320원</span>
+                                                </dd>
+                                            </dl>
+                                        </div>
+                                    </a>
+                                </div>
+                            </li>
+                            <li class="swiper-slide">
+                                <div class="uio-item">
+                                    <a href="#">
+                                        <div class="uio-item_img">
+                                            <img src="http://img1.smdutyfree.com/upload/adm/sp/219021/2190002618582/2190002618582_BE_1_1582252010934.png" alt="시그니처바이오 앰플">
+                                        </div>
+                                        <div class="uio-item_info">
+                                            <dl>
+                                                <dt class="hide">브랜드</dt><dd class="value brand">Celonia</dd>
+                                                <dt class="hide">상품명</dt><dd class="value title">시그니처바이오 앰플1 </dd>
+                                                <dt class="hide">가격</dt>
+                                                <dd class="value price">
+                                                    <del class="original">$100</del>
+                                                    <strong class="sell">$95</strong>
+                                                    <span class="currency">119,320원</span>
+                                                </dd>
+                                            </dl>
+                                        </div>
+                                    </a>
+                                </div>
+                            </li>
+                            <li class="swiper-slide">
+                                <div class="uio-item">
+                                    <a href="#">
+                                        <div class="uio-item_img">
+                                            <img src="http://img1.smdutyfree.com/upload/adm/sp/219021/2190002618582/2190002618582_BE_1_1582252010934.png" alt="시그니처바이오 앰플">
+                                        </div>
+                                        <div class="uio-item_info">
+                                            <dl>
+                                                <dt class="hide">브랜드</dt><dd class="value brand">Celonia</dd>
+                                                <dt class="hide">상품명</dt><dd class="value title">시그니처바이오 앰플1 </dd>
+                                                <dt class="hide">가격</dt>
+                                                <dd class="value price">
+                                                    <del class="original">$100</del>
+                                                    <strong class="sell">$95</strong>
+                                                    <span class="currency">119,320원</span>
+                                                </dd>
+                                            </dl>
+                                        </div>
+                                    </a>
+                                </div>
+                            </li>
+
+                            <li class="swiper-slide">
+                                <div class="uio-item">
+                                    <a href="#">
+                                        <div class="uio-item_img">
+                                            <img src="http://img1.smdutyfree.com/upload/adm/sp/219021/2190002618582/2190002618582_BE_1_1582252010934.png" alt="시그니처바이오 앰플">
+                                        </div>
+                                        <div class="uio-item_info">
+                                            <dl>
+                                                <dt class="hide">브랜드</dt><dd class="value brand">Celonia</dd>
+                                                <dt class="hide">상품명</dt><dd class="value title">시그니처바이오 앰플1 </dd>
+                                                <dt class="hide">가격</dt>
+                                                <dd class="value price">
+                                                    <del class="original">$100</del>
+                                                    <strong class="sell">$95</strong>
+                                                    <span class="currency">119,320원</span>
+                                                </dd>
+                                            </dl>
+                                        </div>
+                                    </a>
+                                </div>
+                            </li>
+
+                            <li class="swiper-slide">
+                                <div class="uio-item">
+                                    <a href="#">
+                                        <div class="uio-item_img">
+                                            <img src="http://img1.smdutyfree.com/upload/adm/sp/219021/2190002618582/2190002618582_BE_1_1582252010934.png" alt="시그니처바이오 앰플">
+                                        </div>
+                                        <div class="uio-item_info">
+                                            <dl>
+                                                <dt class="hide">브랜드</dt><dd class="value brand">Celonia</dd>
+                                                <dt class="hide">상품명</dt><dd class="value title">시그니처바이오 앰플1 </dd>
+                                                <dt class="hide">가격</dt>
+                                                <dd class="value price">
+                                                    <del class="original">$100</del>
+                                                    <strong class="sell">$95</strong>
+                                                    <span class="currency">119,320원</span>
+                                                </dd>
+                                            </dl>
+                                        </div>
+                                    </a>
+                                </div>
+                            </li>
+
+                            <li class="swiper-slide">
+                                <div class="uio-item">
+                                    <a href="#">
+                                        <div class="uio-item_img">
+                                            <img src="http://img1.smdutyfree.com/upload/adm/sp/219021/2190002618582/2190002618582_BE_1_1582252010934.png" alt="시그니처바이오 앰플">
+                                        </div>
+                                        <div class="uio-item_info">
+                                            <dl>
+                                                <dt class="hide">브랜드</dt><dd class="value brand">Celonia</dd>
+                                                <dt class="hide">상품명</dt><dd class="value title">시그니처바이오 앰플1 </dd>
+                                                <dt class="hide">가격</dt>
+                                                <dd class="value price">
+                                                    <del class="original">$100</del>
+                                                    <strong class="sell">$95</strong>
+                                                    <span class="currency">119,320원</span>
+                                                </dd>
+                                            </dl>
+                                        </div>
+                                    </a>
+                                </div>
+                            </li>
+
+                            <li class="swiper-slide">
+                                <div class="uio-item">
+                                    <a href="#">
+                                        <div class="uio-item_img">
+                                            <img src="http://img1.smdutyfree.com/upload/adm/sp/219021/2190002618582/2190002618582_BE_1_1582252010934.png" alt="시그니처바이오 앰플">
+                                        </div>
+                                        <div class="uio-item_info">
+                                            <dl>
+                                                <dt class="hide">브랜드</dt><dd class="value brand">Celonia</dd>
+                                                <dt class="hide">상품명</dt><dd class="value title">시그니처바이오 앰플1 </dd>
+                                                <dt class="hide">가격</dt>
+                                                <dd class="value price">
+                                                    <del class="original">$100</del>
+                                                    <strong class="sell">$95</strong>
+                                                    <span class="currency">119,320원</span>
+                                                </dd>
+                                            </dl>
+                                        </div>
+                                    </a>
+                                </div>
+                            </li>
+
+                        </ul>
+                        <!-- If we need navigation buttons -->
+                        <div class="swiper-button-prev"></div>
+                        <div class="swiper-button-next"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <footer id="footer">
+        <div class="foot_tab">
+            <ul id="loginDiv" style="display:none">
+                <li><a href="#" onclick="Fcm.goLogout(); return false;">로그아웃<!--로그아웃--></a></li>
+                <li class="appIns" style=""><a href="#" onclick="return false;">APP설치<!-- APP설치--></a></li>
             </ul>
-            <div class="bottom">
-                <ul class="sub-menu">
-                    <li><a href="#" class="link">HOME</a></li>
-                    <li><a href="#" class="link">MY PAGE</a></li>
-                    <li><a href="#" class="link">JOIN</a></li>
-                    <li><a href="#" class="link">고객지원</a></li>
-                    <li><a href="#" class="link">호스트지원</a></li>
-                </ul>
-                <ul class="share">
-                    <li><a href="#" class="link facebook"><span class="blind">facebook</span></a></li>
-                    <li><a href="#" class="link twitter"><span class="blind">twitter</span></a></li>
-                    <li><a href="#" class="link instargram"><span class="blind">instargram</span></a></li>
-                </ul>
-                <p class="site-rule">
-                    <a href="#" class="link">개인정보취급동의</a><span>/</span><a href="#" class="link">이용약관</a>
-                </p>
-                <p class="footer-info">정보취급관리자 : (주)임팩트스테이션   </p>
-                <p class="footer-info">정보취급관리자 : 000</p>
-                <p class="footer-info">기업은행, 087-064504-04-038, (주)임팩트스테이션</p>
-                <p class="footer-info">사업자등록번호 : 683-86-00599 (대표자 : 송상훈)</p>
-                <p class="footer-info">favoriteme@impactstation.kr</p>
-                <p class="footer-info">서울특별시 서대문구 통일로 413, 503호 (홍제동)</p>
-                <p class="footer-info">전화번호 : 02-6385-8104</p>
-                <p class="copyright">Copyright 2019 FavoriteMe All Rights Reserved.</p>
-            </div>
+            <ul id="logoutDiv" style="">
+                <li><a href="#" onclick="popLogin(); return false;">로그인</a></li>
+                <li class="appIns" style=""><a href="#" onclick="return false;">APP설치<!-- APP설치--></a></li>
+            </ul>
+            <dl>
+                <dt>환율<!--환율--></dt>
+                <dd><!--\¥-->1,256원<!--원--></dd>
+            </dl>
         </div>
 
-    </div>
-    <div id="content">
-        <div id="main">
-            <div id="main-visual-title">
-                <div class="main-top-bg">
-                    <h2><span>NO EXIT,</span></h2>
-                    <h2><span>스투시 썸머 컬렉션</span></h2>
-                    <a href="#" class="link-more">
-                        <span>view more</span>
-                    </a>
-                </div>
-            </div>
-            <div class="row col-2">
-                <div id="favorite">
-                    <strong class="section-title">favorite culture</strong>
-                    <ul class="item-lists">
-                        <li>
-                            <div class="card-large">
-                                <div class="image-area">
-                                    <img src="../images/@dummy/card01.png" class="image" />
-                                    <a href="#" class="more">
-                                        <span class="blind">더보기</span>
-                                    </a>
-                                </div>
-                                <div class="image-info">
-                                    <p class="text">Shohei shigematsu redesigns sotheby's new york</p>
-                                </div>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="card-large">
-                                <div class="image-area">
-                                    <img src="../images/@dummy/card02.png" class="image" />
-                                    <a href="#" class="more">
-                                        <span class="blind">더보기</span>
-                                    </a>
-                                </div>
-                                <div class="image-info">
-                                    <p class="text">Shohei shigematsu redesigns sotheby's new york</p>
-                                </div>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="card-large">
-                                <div class="image-area">
-                                    <img src="../images/@dummy/card03.png" class="image" />
-                                    <a href="#" class="more">
-                                        <span class="blind">더보기</span>
-                                    </a>
-                                </div>
-                                <div class="image-info">
-                                    <p class="text">Shohei shigematsu redesigns sotheby's new york</p>
-                                </div>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="card-large">
-                                <div class="image-area">
-                                    <img src="../images/@dummy/card04.png" class="image" />
-                                    <a href="#" class="more">
-                                        <span class="blind">더보기</span>
-                                    </a>
-                                </div>
-                                <div class="image-info">
-                                    <p class="text">Shohei shigematsu redesigns sotheby's new york</p>
-                                </div>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="card-large">
-                                <div class="image-area">
-                                    <img src="../images/@dummy/card05.png" class="image" />
-                                    <a href="#" class="more">
-                                        <span class="blind">더보기</span>
-                                    </a>
-                                </div>
-                                <div class="image-info">
-                                    <p class="text">Shohei shigematsu redesigns sotheby's new york</p>
-                                </div>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="card-large">
-                                <div class="image-area">
-                                    <img src="../images/@dummy/card06.png" class="image" />
-                                    <a href="#" class="more">
-                                        <span class="blind">더보기</span>
-                                    </a>
-                                </div>
-                                <div class="image-info">
-                                    <p class="text">Shohei shigematsu redesigns sotheby's new york</p>
-                                </div>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="card-large">
-                                <div class="image-area">
-                                    <img src="../images/@dummy/card07.png" class="image" />
-                                    <a href="#" class="more">
-                                        <span class="blind">더보기</span>
-                                    </a>
-                                </div>
-                                <div class="image-info">
-                                    <p class="text">Shohei shigematsu redesigns sotheby's new york</p>
-                                </div>
-                            </div>
-                        </li>
-                    </ul>
-                </div>
-                <div id="new">
-                    <strong class="section-title">new</strong>
-                    <ul class="item-lists">
-                        <li>
-                            <div class="card-large">
-                                <div class="image-area">
-                                    <img src="../images/@dummy/card01.png" class="image" />
-                                    <a href="#" class="more">
-                                        <span class="blind">더보기</span>
-                                    </a>
-                                </div>
-                                <div class="image-info">
-                                    <p class="text">Shohei shigematsu redesigns sotheby's new york</p>
-                                </div>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="card-large">
-                                <div class="image-area">
-                                    <img src="../images/@dummy/card02.png" class="image" />
-                                    <a href="#" class="more">
-                                        <span class="blind">더보기</span>
-                                    </a>
-                                </div>
-                                <div class="image-info">
-                                    <p class="text">Shohei shigematsu redesigns sotheby's new york</p>
-                                </div>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="card-large">
-                                <div class="image-area">
-                                    <img src="../images/@dummy/card03.png" class="image" />
-                                    <a href="#" class="more">
-                                        <span class="blind">더보기</span>
-                                    </a>
-                                </div>
-                                <div class="image-info">
-                                    <p class="text">Shohei shigematsu redesigns sotheby's new york</p>
-                                </div>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="card-large">
-                                <div class="image-area">
-                                    <img src="../images/@dummy/card04.png" class="image" />
-                                    <a href="#" class="more">
-                                        <span class="blind">더보기</span>
-                                    </a>
-                                </div>
-                                <div class="image-info">
-                                    <p class="text">Shohei shigematsu redesigns sotheby's new york</p>
-                                </div>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="card-large">
-                                <div class="image-area">
-                                    <img src="../images/@dummy/card05.png" class="image" />
-                                    <a href="#" class="more">
-                                        <span class="blind">더보기</span>
-                                    </a>
-                                </div>
-                                <div class="image-info">
-                                    <p class="text">Shohei shigematsu redesigns sotheby's new york</p>
-                                </div>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="card-large">
-                                <div class="image-area">
-                                    <img src="../images/@dummy/card06.png" class="image" />
-                                    <a href="#" class="more">
-                                        <span class="blind">더보기</span>
-                                    </a>
-                                </div>
-                                <div class="image-info">
-                                    <p class="text">Shohei shigematsu redesigns sotheby's new york</p>
-                                </div>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="card-large">
-                                <div class="image-area">
-                                    <img src="../images/@dummy/card07.png" class="image" />
-                                    <a href="#" class="more">
-                                        <span class="blind">더보기</span>
-                                    </a>
-                                </div>
-                                <div class="image-info">
-                                    <p class="text">Shohei shigematsu redesigns sotheby's new york</p>
-                                </div>
-                            </div>
-                        </li>
-                    </ul>
-                </div>
-
-            </div>
-            <div class="row">
-                <div id="main-post">
-                    <strong class="section-title">post</strong>
-                    <ul class="item-lists">
-                        <li>
-                            <div class="card-post">
-                                <div class="image-area">
-                                    <a href="post.html" class="more">
-                                        <img src="../images/@dummy/post01.png" class="image" />
-                                        <p class="text">
-                                            어제의 추억을 함께 보며 오늘의 추억을 만들어간다
-                                        </p>
-                                        <span class="writer">Shalwk</span>
-                                    </a>
-                                </div>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="card-post">
-                                <div class="image-area">
-                                    <a href="post.html" class="more">
-                                        <img src="../images/@dummy/post02.png" class="image" />
-                                        <p class="text">Shohei shigematsu redesigns sotheby's new york</p>
-                                        <span class="writer">Shalwk</span>
-                                    </a>
-                                </div>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="card-post">
-                                <div class="image-area">
-                                    <a href="post.html" class="more">
-                                        <img src="../images/@dummy/post03.png" class="image" />
-                                        <p class="text">Shohei shigematsu redesigns sotheby's new york</p>
-                                        <span class="writer">Shalwk</span>
-                                    </a>
-                                </div>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="card-post">
-                                <div class="image-area">
-                                    <a href="post.html" class="more">
-                                        <img src="../images/@dummy/post04.png" class="image" />
-                                        <p class="text">Shohei shigematsu redesigns sotheby's new york</p>
-                                        <span class="writer">Shalwk</span>
-                                    </a>
-                                </div>
-                            </div>
-                        </li>
-
-                    </ul>
-                </div>
-            </div>
+        <div class="foot_util">
+            <strong>(주)에스엠면세점<!--(주)에스엠면세점--> <em>대표: 김태훈<!--대표: 임정오--></em></strong>
+            <ul class="list_add">
+                <li>서울특별시 종로구 인사동 5길 41 (공평동, 하나투어빌딩)<!--서울특별시 종로구 인사동 5길 41 (공평동, 하나투어빌딩)--></li>
+                <li class="line-break">사업자 등록번호 : 107-88-27900<!--사업자 등록번호 : 107-88-27900-->
+                </li>
+                <li class="line-break">통신판매업신고번호: 제 2015-서울종로-1118호</li>
+                <li>
+                    고객센터: <a href="tel:1522-0800">1522-0800</a></li>
+                <li>
+                    (운영시간 10:00~19:00(주중)<!--운영시간 09:00~19:00-->)
+                </li>
+            </ul>
+            <p class="copyright">COPYRIGHT(C) 2020 SM DUTY FREE. ALL RIGHTS RESERVED</p>
         </div>
 
-    </div>
-
+    </footer>
 
 
 </div>
 
 <!-- Include JavaScript resources -->
-<script src="../js/jquery.1.8.3.min.js"></script>
-<script src="../js/site.js"></script>
-<script src="../js/masonry.pkgd.min.js"></script>
+<script src="../js/plugin/jquery.1.8.3.min.js"></script>
+<script src="../js/plugin/swiper.min.js"></script>
+<script src="../js/app.js"></script>
 
 
 </body>
